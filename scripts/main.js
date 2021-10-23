@@ -20,3 +20,10 @@ const changeSocialMediaLinks = () => {
 }
 
 changeSocialMediaLinks()
+
+const turn3d = () => {
+    document.querySelector('.front').classList.toggle('turn3d')
+    document.querySelector('.back').classList.toggle('turn3d')
+
+}
+

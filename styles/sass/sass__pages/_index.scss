@@ -1,8 +1,44 @@
-main {
-    background: $black;
+.card {
     width: 350px;
     height: 580px;
-    position: relative;
+    transform-style: preserve-3d;
+    position: relative;   
+    
+  
+
+   
+    
+}
+
+main {
+    background: $black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    transform-style: preserve-3d;
+    transition: 1s ease-in-out;
+    backface-visibility: hidden;
+    transform: perspective(500px) rotateY(0deg);
+
+    &.front {
+
+        .arrow-left {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            border: none;
+            background: none;
+            outline: inherit;
+            cursor: pointer;
+
+        }
+
+        &.turn3d {
+            transform: perspective(500px) rotateY(180deg);
+        }
+
+    }
 
     .container {
         display: flex;
@@ -25,6 +61,80 @@ main {
 
     }
 
+}
+
+.back {
+    transform: perspective(500px) rotateY(180deg);
+
+    .content {
+        padding: 5px 20px 5px 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
+
+    &.turn3d {
+        transform: perspective(500px) rotateY(360deg);
+    }
+
+    .logoDoWhile {
+        margin-top: 25px;
+        width: 250px;
+    } 
+    
+    .titleDoWhile {
+        text-align: left;
+        font-size: 28px;
+    
+    }
+
+    .descriptionDoWhile {
+        text-align: left;
+
+    }
+
+    .dateDoWhile {
+        font-family: 'Fira Code', monospace;
+        color: #ffcd1e;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 15px;
+
+
+    }
+
+    .btnDoWhile {
+        text-decoration: none;
+        padding: 15px 20px;
+        background-color: #ffcd1e;
+        text-transform: uppercase;
+        color: $black;
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+        
+    }
+
+    .arrow-right {
+        margin-top: 10px;
+        display: block;
+        position: relative;
+        z-index: 50;
+        border: none;
+        background: none;
+        outline: inherit;
+        cursor: pointer;
+        text-align: start;
+
+        img {
+            transform: rotateY(180deg);
+
+        }
+
+    }
+    
 }
 
 .form {
@@ -51,6 +161,7 @@ main {
 
 
 }
+
 
   
 .avatar {
