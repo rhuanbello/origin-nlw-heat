@@ -1,0 +1,119 @@
+main {
+    background: $black;
+    width: 350px;
+    height: 580px;
+    position: relative;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        background: $gradientY;
+        height: 200px;
+        width: 64px;
+        display: block;
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+
+    }
+
+}
+
+.form {
+    width: 100%;
+    background: $gradientX;
+    height: 165px;
+    clip-path: polygon(100% 0, 100% 40%, 50% 100%, 0 40%, 0 0);
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        background: $black;
+        border-radius: 25px;
+        height: 8px;
+        width: 80px;
+        display: block;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99;
+
+    }
+
+
+}
+
+  
+.avatar {
+    width: 10rem;
+    position: relative;
+    margin-top: -90px;
+    transition: .3s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    .avatarBrand {
+        position: absolute;
+        top: -15px;
+        z-index: 1;
+        animation: rotate 70s infinite;
+    
+
+    }
+
+    .avatarImage {
+        width: 10rem;
+        height: 11.5rem;
+        object-fit: cover;
+        // clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+        clip-path: circle();
+    
+    }
+
+}
+ 
+.userName {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+
+}
+
+.userGithub {
+    margin-top: 0.30rem;
+    color: $grey;
+    text-decoration: none;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+
+}
+
+.userDescription {
+    margin-top: 2rem;
+    max-width: 262px;
+
+}
+
+.userLinks {
+    margin-top: 2rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+
+}
+  
