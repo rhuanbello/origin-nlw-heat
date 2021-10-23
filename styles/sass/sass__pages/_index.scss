@@ -4,10 +4,6 @@
     transform-style: preserve-3d;
     position: relative;   
     
-  
-
-   
-    
 }
 
 main {
@@ -161,8 +157,6 @@ main {
 
 
 }
-
-
   
 .avatar {
     width: 10rem;
@@ -228,3 +222,26 @@ main {
 
 }
   
+.input {
+    // display: none !important;
+    position: absolute;
+    // height: 50px;
+    left: 20%;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+    label {
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .insertName {
+        width: 200px;
+        
+        outline: none;
+        padding: 5px;
+
+    }    
+
+}
