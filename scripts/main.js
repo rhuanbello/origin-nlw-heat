@@ -1,26 +1,44 @@
 const socialMediaData = {
-    instagram: 'rhuanbello',
-    facebook: '100016322682357',
-    youtube: '/channel/UCG_K1CO1YCpxuMrPi5J3bUQ',
-    twitter: 'rhuanbello',
-    github: 'rhuanbello'
+    instagram: `${localStorage.getItem('instagram')}`,
+    facebook: `${localStorage.getItem('facebook')}`,
+    linkedin: `${localStorage.getItem('linkedin')}`,
+    twitter: `${localStorage.getItem('twitter')}`,
+    github: `${localStorage.getItem('github')}`
+    
+}
+
+// My Default Links
+if (localStorage.getItem('github') === null) {
+    socialMediaData.github = 'rhuanbello'
+    socialMediaData.facebook = 'https://www.facebook.com/orhuanbello/'
+    socialMediaData.linkedin = 'https://www.linkedin.com/in/rhuanbello/'
+    socialMediaData.twitter = 'https://twitter.com/rhuanbello'
+    socialMediaData.instagram = 'https://www.instagram.com/rhuanbello/'
     
 }
 
 const changeInfos = () => {
-    const newUserName = document.querySelector('.insertName').value
-    socialMediaData.github = newUserName
+    // Storage user input values
+    localStorage.setItem('github', document.querySelector('.insertName').value);
+    localStorage.setItem('linkedin', document.querySelector('.insertLinkedin').value);
+    localStorage.setItem('instagram', document.querySelector('.insertInstagram').value);
+    localStorage.setItem('twitter', document.querySelector('.insertTwitter').value);
+    localStorage.setItem('facebook', document.querySelector('.insertFacebook').value);
 
+    refresh()
     getGitHubProfileInfos()
-
+    changeSocialMediaLinks()
 }
 
 const changeSocialMediaLinks = () => {
     const userLinks = document.querySelectorAll('.userLinks li a')
-    userLinks.forEach(link => {
-        let socialMediaName = link.href.split('/')[2].split('.com')[0]
 
-        link.setAttribute('href', `https://${socialMediaName}.com/${socialMediaData[socialMediaName]}`)
+    userLinks.forEach(link => {
+        let socialMediaName = Array.from(link.children).map(child => {
+            return child.alt.split(' ')[1]
+        })
+        
+        link.setAttribute('href', `${socialMediaData[socialMediaName]}`)
 
     })
 
@@ -53,3 +71,36 @@ const getGitHubProfileInfos = () => {
 
 getGitHubProfileInfos()
 
+const openFormData = () => {
+    const openForm = document.querySelector('.ri-menu-line')
+    const closeForm = document.querySelector('.ri-close-line')
+    const formData = document.querySelector('.formData')
+    const btn = document.querySelector('.formData button')
+
+    openForm.addEventListener('click', () => {
+        formData.classList.add('active')
+
+    })
+
+    closeForm.addEventListener('click', () => {
+        formData.classList.remove('active')
+
+    })
+
+    btn.addEventListener('click', () => {
+        formData.classList.remove('active')
+
+    })
+
+    document.addEventListener ('keydown', (event) => {
+        if (event.key === "Escape") { 
+            formData.classList.remove('active')
+
+        }
+    });
+
+}
+
+openFormData()
+
+const refresh = () => window.location.reload(true);

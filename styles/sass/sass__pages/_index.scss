@@ -17,25 +17,6 @@ main {
     backface-visibility: hidden;
     transform: perspective(500px) rotateY(0deg);
 
-    &.front {
-
-        .arrow-left {
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            border: none;
-            background: none;
-            outline: inherit;
-            cursor: pointer;
-
-        }
-
-        &.turn3d {
-            transform: perspective(500px) rotateY(180deg);
-        }
-
-    }
-
     .container {
         display: flex;
         flex-direction: column;
@@ -55,6 +36,47 @@ main {
         transform: translateX(-50%);
         z-index: 0;
 
+    }
+
+}
+
+.front {
+
+    .arrow-left {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        border: none;
+        background: none;
+        outline: inherit;
+        cursor: pointer;
+      
+        
+        img {
+            padding: 5px;
+            transition: .2s;
+
+            &:hover {
+                transform: scale(1.5);
+            }
+
+        }
+    }
+
+    .ri-menu-line {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        font-size: 24px;
+        color: $pink;
+        cursor: pointer;
+
+    }
+
+    
+
+    &.turn3d {
+        transform: perspective(500px) rotateY(180deg);
     }
 
 }
@@ -114,18 +136,22 @@ main {
     }
 
     .arrow-right {
-        margin-top: 10px;
-        display: block;
-        position: relative;
-        z-index: 50;
+        position: absolute;
+        bottom: 2%;
+        left: 3%;
+        z-index: 0;
         border: none;
         background: none;
-        outline: inherit;
         cursor: pointer;
-        text-align: start;
 
         img {
             transform: rotateY(180deg);
+            transition: .2s;
+            padding: 5px;
+
+            &:hover {
+                transform: rotateY(180deg) scale(1.5);
+            }
 
         }
 
@@ -219,29 +245,182 @@ main {
     display: flex;
     gap: 0.5rem;
     justify-content: center;
+    
+
+    img {
+        transition: .2s;
+        &:hover {
+            transform: scale(1.1);
+            
+        }
+    }
 
 }
   
-.input {
-    // display: none !important;
+.formData {
     position: absolute;
-    // height: 50px;
-    left: 20%;
-    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
     gap: 15px;
-    flex-direction: column;
+    z-index: 2000;
+    background-color: $black;
+    z-index: 199;
+    width: 350px;
+    height: 580px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    display: none;
 
-    label {
+
+    .ri-close-line {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        font-size: 24px;
+        color: $pink;
+        cursor: pointer;
+
+    }
+
+    img {
+        width: 200px;
+        margin: 35px auto 30px auto;
+
+    }
+
+    .containerData {
+        padding: 15px;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        
+
+    }
+
+    .formTitle {
         font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: center;
+        color: #fff; 
+
+
+    }
+
+    .insertNameLabel {
+        margin-top: 30px;
+        font-size: 16px;
         color: #fff;
+        font-weight: 500;
+        
     }
 
     .insertName {
-        width: 200px;
-        
+        background: #d3d3d3;
+        background: none;
+        border: none;
+        border-bottom: 1px solid $pink;
         outline: none;
-        padding: 5px;
+        padding: 7px 7px 3px 0;
+        color: $grey;
+        color: $yellow;
+        font-size: 16px;
+        margin-top: 15px;
+
+        &:focus {
+            border-bottom: 1px solid $yellow;
+
+        }
 
     }    
 
+    button {
+        border: none;
+        text-decoration: none;
+        padding-block: 10px;
+        background-color: #ffcd1e;
+        text-transform: uppercase;
+        color: $black;
+        font-weight: bold;
+        display: block;
+        margin-top: 30px;
+        cursor: pointer;
+
+    }
+
+    animation: openFormData .7s linear forwards;
+    
+
+    &.active {
+        display: flex;
+
+    }
+
+
+
+}
+
+@media (max-width: 480px) {
+    .card, .formData {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .form {
+        
+
+
+        &::after {
+
+            display: none;
+    
+        }
+    
+    
+    }
+
+    .containerData {
+        padding: 15px;
+        padding-top: 50px !important;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        
+        img {
+            width: 80%;
+        }
+    }
+
+    .insertNameLabel {
+        margin-top: 30px;
+        font-size: 20px !important;
+        color: #fff;
+        font-weight: 500;
+        
+    }
+
+    .insertName {
+        background: #d3d3d3;
+        background: none;
+        border: none;
+        border-bottom: 1px solid $pink;
+        outline: none;
+        padding: 7px 7px 3px 0;
+        color: $grey;
+        color: $yellow;
+        font-size: 18px !important;
+        margin-top: 15px;
+    }
+
+    main {
+
+        &::after {
+            display: none;
+    
+        }
+    }
+    
 }

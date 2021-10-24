@@ -10,48 +10,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   </head>
   <body>
 
-    <div class="card">
+    <div class="card" data-tilt>
+
       <main class="front">
         
         <div class="container">
 
           <div class="form"></div>
 
+          <i class="ri-menu-line"></i>
+
           <div class="avatar">
             <span class="avatarBrand">
-              <img src="assets/build.svg" alt="Selo Rocketseat" />
+              <img src="assets/build.svg">
             </span>
-            <img class="avatarImage" src="" alt="Foto pessoal"/>
+            <img class="avatarImage" src="">
           </div>
 
           <h1 class="userName"></h1>
           <a class="userGithub" href="" target="_blank">
-            <img src="assets/github.svg" alt="ícone github" />
+            <img src="assets/github.svg"/>
             <span class="userNick"></span>
           </a>
           <p class="userDescription"></p>
 
-          <ul class="userLinks" id="socialLinks">
+          <ul class="userLinks">
             <li>
-              <a href="https://youtube.com/maykbrito"  target="_blank">
-                <img src="assets/youtube.svg" alt="ícone youtube"/>
+              <a href=""  target="_blank">
+                <img src="assets/linkedin.svg" alt="ícone linkedin"/>
               </a>
             </li>
             <li>
-              <a href="https://facebook.com/maykbrito" target="_blank">
-                <img src="assets/facebook.svg" alt="ícone facebook"/>
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com/maykbrito" target="_blank" >
+              <a href="" target="_blank" >
                 <img src="assets/instagram.svg" alt="ícone instagram"/>
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/maykbrito" target="_blank">
+              <a href="" target="_blank">
+                <img src="assets/facebook.svg" alt="ícone facebook"/>
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank">
                 <img src="assets/twitter.svg" alt="ícone twitter"/>
               </a>
             </li>
@@ -64,6 +69,7 @@
         </div>
 
       </main>
+
       <main class="back">
         
         <div class="container">
@@ -92,13 +98,29 @@
         </div>
 
       </main>
+ 
+    </div>
 
-      
+    <div class="formData">
+      <div class="containerData">
+        <img src="assets/dowhile.svg" alt="">
+        <label class="formTitle">Crie seu Card abaixo</label>
+        <i class="ri-close-line"></i>
+        
+        <label class="insertNameLabel" for="input">Insira seu Usuário no GitHub </label>
+          <input class="insertName" type="text" id="input" placeholder="rhuanbello">
+        <label class="insertNameLabel" for="input">Insira suas Redes Sociais</label>
+          <input class="insertName insertLinkedin" type="text" id="input" placeholder="https://www.linkedin.com/in/rhuanbello/">
+        
+          <input class="insertName insertInstagram" type="text" id="input" placeholder="https://instagram.com/rhuanbello">
+        
+          <input class="insertName insertFacebook" type="text" id="input" placeholder="https://www.facebook.com/orhuanbello/">
+        
+          <input class="insertName insertTwitter" type="text" id="input" placeholder="https://twitter.com/rhuanbello">
+        <button onclick="changeInfos()">Enviar</button>
+
+      </div>
     </div>
-    <div class="input">
-      <label for="input">Insira seu usuário no GitHub</label>
-      <input class="insertName" type="text" id="input" placeholder="">
-      <button onclick="changeInfos()">Enviar</button>
-    </div>
+    
   </body>
 </html>
