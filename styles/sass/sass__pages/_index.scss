@@ -143,14 +143,14 @@ main {
         border: none;
         background: none;
         cursor: pointer;
+        outline: none;
 
         img {
-            transform: rotateY(180deg);
             transition: .2s;
             padding: 5px;
 
             &:hover {
-                transform: rotateY(180deg) scale(1.5);
+                transform: scale(1.5);
             }
 
         }
